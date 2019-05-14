@@ -1,0 +1,4 @@
+server:
+  port: 19993
+file:
+  path: D:\files
