@@ -36,7 +36,7 @@ public class Resource implements Serializable{
     private Integer type;
 
     @Column(name = "link")
-    private Integer link;
+    private String link;
 
     @Column(name = "time")
     private String time;
@@ -117,6 +117,14 @@ public class Resource implements Serializable{
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }
 

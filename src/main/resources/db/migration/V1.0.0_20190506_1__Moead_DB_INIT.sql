@@ -46,7 +46,7 @@ CREATE TABLE `reply` (
   `user_id` int(11) DEFAULT NULL,
   `question_id` int(11) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
-  `time` datetime DEFAULT NULL,
+  `time` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
@@ -57,7 +57,8 @@ CREATE TABLE `resource` (
   `name` varchar(255) DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
   `upload_url` varchar(255) DEFAULT NULL,
-  `time` datetime DEFAULT NULL,
+  `time` varchar(255) DEFAULT NULL,
+  `link` varchar(255) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `type` tinyint(1) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,

@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> - 添加用户</title>
+    <title> - 用户</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <link href="${ctx!}/js/plugins/layui/css/layui.css" rel="stylesheet" />
@@ -28,7 +28,7 @@
 
     <div class="layui-form-item" style="visibility: hidden">
         <div class="layui-form-item">
-            <input type="hidden" name="userId"  value="${(Session.user.id)}" >
+            <input type="hidden" name="id"  value="${(users.id)}" >
         </div>
     </div>
 
@@ -81,7 +81,7 @@
 
     <div class="layui-form-item">
         <label class="layui-form-label">用户身份</label>
-        <div class="layui-input-block" style="margin-left: 0">
+        <div class="layui-input-inline" style="margin-left: 0">
             <select name="role" lay-verify="">
                 <option value="">请选择一个角色</option>
                 <option value="1">学生</option>
@@ -126,7 +126,7 @@
                 data: data.field,
                 success: function(ret){
                     if(ret.isOk){
-                        layer.msg("添加成功", {time: 2000},function(){
+                        layer.msg("操作成功", {time: 2000},function(){
                             var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
                             parent.layer.close(index);
                             window.parent.location.href="/admin/user/index";

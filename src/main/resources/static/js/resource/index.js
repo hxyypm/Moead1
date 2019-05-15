@@ -17,7 +17,7 @@ layui.define([ 'layer',  'table','common','util'], function (exports) {
             ,{field: 'url', align:'center', title: '下载地址',unresize:true}
             ,{field: 'uploadUrl', align:'center', title: '上传地址',unresize:true}
             // ,{field: 'type', align:'center', title: '类型',unresize:true}
-            ,{field: 'time', align:'center', title: '创建时间',unresize:true,templet: '<div>{{# if(d.time!=null){ }}{{ layui.util.toDateString(d.time) }}{{# } }}</div>'}
+            ,{field: 'time', align:'center', title: '创建时间',unresize:true}
             ,{fixed: 'right', title:'操作',align:'center',width:'200',toolbar: '#operator',unresize:true}
         ]]
     });

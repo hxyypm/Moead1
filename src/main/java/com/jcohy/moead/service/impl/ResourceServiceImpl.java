@@ -1,5 +1,6 @@
 package com.jcohy.moead.service.impl;
 
+import com.jcohy.date.DateUtils;
 import com.jcohy.moead.exception.ServiceException;
 import com.jcohy.moead.model.Resource;
 import com.jcohy.moead.respository.ResourceRepository;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -59,6 +61,7 @@ public class ResourceServiceImpl implements ResourceService {
             dbresource = resourceRepository.findById(resource.getId()).get();
             dbresource.setDescription(resource.getDescription());
         } else {
+            resource.setTime(DateUtils.dateToStr(new Date(),"yyyy-mm-dd HH:mm:ss"));
             dbresource = resource;
         }
         return resourceRepository.saveAndFlush(dbresource);

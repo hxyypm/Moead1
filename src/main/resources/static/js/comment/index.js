@@ -15,7 +15,7 @@ layui.define([ 'layer',  'table','common','util'], function (exports) {
             ,{field: 'username', align:'center', title: '用户名',unresize:true,templet: '<div>{{d.username}}</div>'}
             ,{field: 'description', align:'center', title: '描述',unresize:true}
             // ,{field: 'type', align:'center', title: '类型',unresize:true}
-            ,{field: 'time', align:'center', title: '创建时间',unresize:true,templet: '<div>{{# if(d.time!=null){ }}{{ layui.util.toDateString(d.time) }}{{# } }}</div>'}
+            ,{field: 'time', align:'center', title: '创建时间',unresize:true}
             ,{fixed: 'right', title:'操作',align:'center',width:'200',toolbar: '#operator',unresize:true}
         ]]
     });

@@ -19,8 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Copyright  : 2015-2033 Beijing Startimes Communication & Network Technology Co.Ltd
@@ -57,9 +55,6 @@ public class UploadController {
         }
         String downloadUrl = StringUtils.replace(url.toString(), "upload", "download");
         System.out.println("replaceUrl-----"+downloadUrl);
-        Map<String,String> map = new HashMap<>();
-//        map.put("downloadUrl",downloadUrl+"/"+fileName);
-//        map.put("fileName",fileName);
         Resource resource = save(fileName, downloadUrl, request.getSession());
         return JsonResult.ok("data",resource);
     }
@@ -69,7 +64,7 @@ public class UploadController {
         User user = (User) session.getAttribute("user");
         resource.setUser(user);
         resource.setName(fileName);
-        resource.setUrl(downloadUrl+File.separator+fileName);
+        resource.setUrl(downloadUrl+"/"+fileName);
         resource.setUserId(user.getId());
         resource.setUploadUrl(filePath);
         resource.setType(1);

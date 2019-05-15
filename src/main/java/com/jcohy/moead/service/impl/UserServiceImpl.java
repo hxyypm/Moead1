@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public User login(Integer num, String password,Integer role) throws Exception {
+    public User login(Integer num, String password, Integer role) throws Exception {
         return userRepository.findUserByNumAndRole(num,role);
     }
 
@@ -59,8 +59,13 @@ public class UserServiceImpl implements UserService {
             if(user.getBirth()!=null) dbUser.setBirth(user.getBirth());
             if(user.getPhone()!=null) dbUser.setPhone(user.getPhone());
             if(user.getSex()!=null) dbUser.setSex(user.getSex());
+            if(user.getRole()!=null) dbUser.setRole(user.getRole());
+
             userRepository.saveAndFlush(dbUser);
         }else{
+            if(findByNum(user.getNum() )!= null){
+              throw  new ServiceException("用户已存在");
+            }
             user.setPassword("123456");
             dbUser = userRepository.saveAndFlush(user);
 

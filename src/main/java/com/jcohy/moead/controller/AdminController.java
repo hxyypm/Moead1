@@ -2,6 +2,7 @@ package com.jcohy.moead.controller;
 
 import com.jcohy.moead.common.JsonResult;
 import com.jcohy.moead.common.PageJson;
+import com.jcohy.moead.exception.ServiceException;
 import com.jcohy.moead.model.User;
 import com.jcohy.moead.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by jiac on 2018/4/2.
  * ClassName  : com.jcohy.perfectteaching.controller
@@ -22,7 +20,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/user")
-public class AdminController extends BaseController{
+public class AdminController extends BaseController {
 
     @Autowired
     private UserService userService;
@@ -57,7 +55,17 @@ public class AdminController extends BaseController{
     @PostMapping("/add")
     @ResponseBody
     public JsonResult add(User user ){
-        User saveOrUpdate = userService.saveOrUpdate(user);
+        if(user.getNum() == null){
+            return JsonResult.fail("用户编号不能为空");
+        }
+        User saveOrUpdate = null;
+        try{
+            saveOrUpdate = userService.saveOrUpdate(user);
+
+        }catch (ServiceException e){
+            return JsonResult.fail(e.getMessage());
+
+        }
         return JsonResult.ok().set("data",saveOrUpdate);
     }
 

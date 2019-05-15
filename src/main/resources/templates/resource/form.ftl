@@ -62,7 +62,7 @@
     <div class="layui-form-item" style="display: none" id="reourcelink">
         <label class="layui-form-label">资源外链：</label>
         <div class="layui-input-inline">
-            <input type="text" name="url" lay-verify="url" placeholder="请输入外链地址" value="${(resource.url)}"
+            <input type="text" name="link"  placeholder="请输入外链地址" value="${(resource.link)}"
                    autocomplete="off" class="layui-input">
         </div>
     </div>
