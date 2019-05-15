@@ -59,7 +59,12 @@ public class ResourceServiceImpl implements ResourceService {
         Resource dbresource = null;
         if (resource.getId() != null) {
             dbresource = resourceRepository.findById(resource.getId()).get();
-            dbresource.setDescription(resource.getDescription());
+            dbresource.setTime(DateUtils.dateToStr(new Date(),"yyyy-mm-dd HH:mm:ss"));
+            if(resource.getDescription() != null) dbresource.setDescription(resource.getDescription());
+            if(resource.getLink() != null) dbresource.setLink(resource.getLink());
+            if(resource.getName() != null ) dbresource.setName(resource.getName());
+            if(resource.getUrl() != null) dbresource.setUrl(resource.getUrl());
+
         } else {
             resource.setTime(DateUtils.dateToStr(new Date(),"yyyy-mm-dd HH:mm:ss"));
             dbresource = resource;

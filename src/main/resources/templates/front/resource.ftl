@@ -83,7 +83,11 @@
                         <div class="article-footer">
                             <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;${x.time}</span>
                             <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;${x.user.name}</span>
-                            <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="${x.url}">${x.url}</a></span>
+                            <#if x.url != null >
+                                <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="${x.url}">${x.url}</a></span>
+                            <#else >
+                                <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a target="_blank"    href="${x.link}">${x.link}</a></span>
+                            </#if>
                         </div>
                     </div>
                 </#list>
@@ -104,40 +108,40 @@
                 </form>
             </div>
             <!--推荐/点击排行-->
-            <div class="layui-tab layui-tab-brief shadow animated fadeInRight" lay-filter="docDemoTabBrief">
-                <ul class="layui-tab-title">
-                    <li class="layui-this">点击排行</li>
-                    <!--<li>站长推荐</li>-->
-                </ul>
-                <div class="layui-tab-content">
-                    <div class="layui-tab-item layui-show">
-                        <ul class="blog-module-ul">
-                            <@resourceList>
-                            <#list list as x>
-                                <#if x_index == 0>
-                                    <li><i class="layui-badge-rim layui-bg-red">${x_index+1}</i>&nbsp;&nbsp;<a href="${x.url}/${x.id}">${x.name}</a></li>
-                                    <#elseif x_index == 1>
-                                        <li><i class="layui-badge-rim layui-bg-orange">${x_index+1}</i>&nbsp;&nbsp;<a href="${x.url}/${x.id}">${x.name}</a></li>
-                                        <#elseif x_index == 2>
-                                            <li><i class="layui-badge-rim layui-bg-green">${x_index+1}</i>&nbsp;&nbsp;<a href="${x.url}/${x.id}">${x.name}</a></li>
-                                            <#else >
-                                                <li><i class="layui-badge-rim">${x_index+1}</i>&nbsp;&nbsp;<a href="${x.url}/${x.id}">${x.name}</a></li>
-                                </#if>
+            <#--<div class="layui-tab layui-tab-brief shadow animated fadeInRight" lay-filter="docDemoTabBrief">-->
+                <#--<ul class="layui-tab-title">-->
+                    <#--<li class="layui-this">点击排行</li>-->
+                    <#--<!--<li>站长推荐</li>&ndash;&gt;-->
+                <#--</ul>-->
+                <#--<div class="layui-tab-content">-->
+                    <#--<div class="layui-tab-item layui-show">-->
+                        <#--<ul class="blog-module-ul">-->
+                            <#--<@resourceList>-->
+                            <#--<#list list as x>-->
+                                <#--<#if x_index == 0>-->
+                                    <#--<li><i class="layui-badge-rim layui-bg-red">${x_index+1}</i>&nbsp;&nbsp;<a href="${x.url}/${x.id}">${x.name}</a></li>-->
+                                    <#--<#elseif x_index == 1>-->
+                                        <#--<li><i class="layui-badge-rim layui-bg-orange">${x_index+1}</i>&nbsp;&nbsp;<a href="${x.url}/${x.id}">${x.name}</a></li>-->
+                                        <#--<#elseif x_index == 2>-->
+                                            <#--<li><i class="layui-badge-rim layui-bg-green">${x_index+1}</i>&nbsp;&nbsp;<a href="${x.url}/${x.id}">${x.name}</a></li>-->
+                                            <#--<#else >-->
+                                                <#--<li><i class="layui-badge-rim">${x_index+1}</i>&nbsp;&nbsp;<a href="${x.url}/${x.id}">${x.name}</a></li>-->
+                                <#--</#if>-->
 
-                            </#list>
-                        </@resourceList>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                            <#--</#list>-->
+                        <#--</@resourceList>-->
+                        <#--</ul>-->
+                    <#--</div>-->
+                <#--</div>-->
+            <#--</div>-->
 
-            <div class="blog-module shadow">
-                <div class="blog-module-title">友情链接</div>
-                <ul class="blogroll">
-                    <li><a target="_blank" href="http://www.layui.com/" title="Layui">Layui</a></li>
-                    <li><a target="_blank" href="http://www.pagemark.cn/" title="页签">页签</a></li>
-                </ul>
-            </div>
+            <#--<div class="blog-module shadow">-->
+                <#--<div class="blog-module-title">友情链接</div>-->
+                <#--<ul class="blogroll">-->
+                    <#--<li><a target="_blank" href="http://www.layui.com/" title="Layui">Layui</a></li>-->
+                    <#--<li><a target="_blank" href="http://www.pagemark.cn/" title="页签">页签</a></li>-->
+                <#--</ul>-->
+            <#--</div>-->
         </div>
     </div>
     <div class="clear"></div>

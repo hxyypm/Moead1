@@ -73,7 +73,7 @@
             <button type="button" class="layui-btn" id="upload">
                 <i class="layui-icon">&#xe67c;</i>上传资源
             </button>
-            <input type="hidden" name="id">
+            <input type="hidden" name="id" value="${(resource.id)}">
         </div>
     </div>
 
@@ -148,7 +148,7 @@
                 data: data.field,
                 success: function(ret){
                     if(ret.isOk){
-                        layer.msg("添加成功", {time: 2000},function(){
+                        layer.msg("操作成功", {time: 2000},function(){
                             var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
                             parent.layer.close(index);
                             window.parent.location.href="/admin/resource/index";
